@@ -6,13 +6,13 @@ const jwt = require("jsonwebtoken");
  * Onboard the first admin user (one-time setup).
  */
 const apiOnboardAdmin = async (req, res) => {
-    const { firstName, lastName, email, password, setupKey } = req.body;
+    const { firstName, lastName, email, password, phoneNumber, setupKey } = req.body;
 
     if (setupKey !== process.env.ADMIN_SETUP_KEY) {
         return res.status(403).json({ success: false, message: "Invalid setup key." });
     }
 
-    if (!email || !password || !firstName || !lastName) {
+    if (!email || !password || !firstName || !lastName || !phoneNumber) {
         return res.status(400).json({ success: false, message: "Missing required fields." });
     }
 
@@ -25,6 +25,7 @@ const apiOnboardAdmin = async (req, res) => {
         const admin = await UserModel.create({
             firstName: firstName.trim(),
             lastName: lastName.trim(),
+            phoneNumber: phoneNumber.trim(),
             email: email.trim().toLowerCase(),
             password,
             role: "admin",
