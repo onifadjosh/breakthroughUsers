@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Session configuration
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'rccg-btc-secret',
+  secret: process.env.SESSION_SECRET || 'rccg-breakthrough-secret',
   resave: false,
   saveUninitialized: false,
   cookie: { 
