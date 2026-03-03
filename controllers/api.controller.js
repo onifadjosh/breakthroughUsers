@@ -31,6 +31,23 @@ const apiOnboardAdmin = async (req, res) => {
             role: "admin",
         });
 
+        // Optional: send a welcome email to the onboarded admin
+        try {
+            const mailContent = await renderTemplate("welcomeMail.ejs", {
+                firstname: admin.firstName,
+                lastname: admin.lastName,
+            });
+
+            await transporter.sendMail({
+                from: process.env.APP_MAIL,
+                to: admin.email,
+                subject: `Welcome ${admin.firstName} to Breakthrough Cathedral Admin Portal`,
+                html: mailContent,
+            });
+        } catch (mailError) {
+            console.error("Onboard admin email error:", mailError);
+        }
+
         return res.json({
             success: true,
             message: "Admin created successfully.",
