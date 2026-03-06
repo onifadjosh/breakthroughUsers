@@ -18,7 +18,7 @@ const app = express();
 
 // Enable CORS
 app.use(cors({
-  origin: "http://localhost:5173", // React dev server
+  origin: ["http://localhost:5173", "https://breakthrough-members.vercel.app"], // React dev server
   credentials: true
 }));
 const PORT = process.env.PORT || 4500;
