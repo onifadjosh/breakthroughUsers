@@ -4,105 +4,400 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= subject %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333333;
+            font-family: 'DM Sans', sans-serif;
+            background-color: #0d1a0e;
+            background-image: 
+                radial-gradient(ellipse at 20% 50%, rgba(4, 99, 7, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(4, 99, 7, 0.08) 0%, transparent 50%);
             margin: 0;
-            padding: 0;
-            background-color: #f4f7f4;
+            padding: 40px 16px;
+            -webkit-font-smoothing: antialiased;
         }
+
         .wrapper {
             max-width: 600px;
-            margin: 20px auto;
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin: 0 auto;
         }
-        .hero {
-            position: relative;
-            background-color: #046307;
-            text-align: center;
+
+        /* ── TOP ACCENT BAR ── */
+        .accent-bar {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #1db922, #4ade80, #1db922, transparent);
+            border-radius: 2px 2px 0 0;
         }
-        .hero img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+
+        /* ── HEADER ── */
         .header {
-            padding: 30px;
-            background-color: #046307;
-            color: white;
-            text-align: center;
+            background: #0f1f10;
+            padding: 36px 40px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-left: 1px solid rgba(74, 222, 128, 0.08);
+            border-right: 1px solid rgba(74, 222, 128, 0.08);
         }
+
+        .logo-lockup {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-ring {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(74, 222, 128, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(4, 99, 7, 0.2);
+            flex-shrink: 0;
+        }
+
+        .logo-ring img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            filter: brightness(1.1);
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #f0fdf0;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+        }
+
+        .brand-sub {
+            font-size: 11px;
+            font-weight: 300;
+            color: #4ade80;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .header-date {
+            font-size: 11px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.08em;
+            text-align: right;
+            text-transform: uppercase;
+        }
+
+        /* ── HERO BANNER ── */
+        .hero-banner {
+            background: linear-gradient(135deg, #062508 0%, #0a3d0c 40%, #062508 100%);
+            position: relative;
+            padding: 56px 40px 48px;
+            text-align: center;
+            overflow: hidden;
+            border-left: 1px solid rgba(74, 222, 128, 0.08);
+            border-right: 1px solid rgba(74, 222, 128, 0.08);
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -60px; left: -60px;
+            width: 220px; height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(29, 185, 34, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -40px; right: -40px;
+            width: 180px; height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(29, 185, 34, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #4ade80;
+            background: rgba(74, 222, 128, 0.08);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 20px;
+            padding: 5px 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #f0fdf0;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: #4ade80;
+        }
+
+        /* ── CONTENT ── */
         .content {
-            padding: 40px 30px;
+            background: #ffffff;
+            padding: 48px 44px;
+            border-left: 1px solid rgba(74, 222, 128, 0.08);
+            border-right: 1px solid rgba(74, 222, 128, 0.08);
         }
-        .footer {
-            background-color: #f9faf9;
-            padding: 30px;
-            text-align: center;
+
+        .salutation {
             font-size: 13px;
-            color: #666666;
-            border-top: 1px solid #eeeeee;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #046307;
+            margin-bottom: 10px;
         }
+
+        .divider-line {
+            width: 36px;
+            height: 2px;
+            background: linear-gradient(90deg, #046307, #4ade80);
+            border-radius: 1px;
+            margin-bottom: 24px;
+        }
+
+        .body-text {
+            font-size: 15.5px;
+            line-height: 1.8;
+            color: #374151;
+            font-weight: 300;
+        }
+
+        .body-text p {
+            margin-bottom: 18px;
+        }
+
+        .cta-wrap {
+            margin-top: 36px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .button {
             display: inline-block;
             padding: 14px 30px;
-            background-color: #046307;
-            color: #ffffff;
+            background: linear-gradient(135deg, #046307 0%, #068a0b 100%);
+            color: #ffffff !important;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 25px;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 20px rgba(4, 99, 7, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
         }
-        h1 {
+
+        .button-ghost {
+            display: inline-block;
+            padding: 14px 24px;
+            color: #046307 !important;
+            text-decoration: none;
+            border-radius: 6px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1.5px solid rgba(4, 99, 7, 0.25);
+        }
+
+        /* ── SIGNATURE ── */
+        .signature {
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .sig-line {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 4px;
+        }
+
+        .sig-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
             color: #046307;
-            font-size: 24px;
-            margin-top: 0;
+            letter-spacing: 0.01em;
         }
-        p {
+
+        .sig-role {
+            font-size: 12px;
+            color: #6b7280;
+            margin-top: 2px;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: #0f1f10;
+            padding: 32px 40px;
+            border-left: 1px solid rgba(74, 222, 128, 0.08);
+            border-right: 1px solid rgba(74, 222, 128, 0.08);
+            border-bottom: 1px solid rgba(74, 222, 128, 0.08);
+            border-radius: 0 0 4px 4px;
+        }
+
+        .social-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 20px;
-            font-size: 16px;
         }
-        .logo-footer {
-            width: 50px;
-            margin-bottom: 10px;
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(74, 222, 128, 0.07);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            color: #4ade80 !important;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .footer-org {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4px;
+        }
+
+        .footer-tagline {
+            font-size: 11px;
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .footer-legal {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 10.5px;
+            color: rgba(255,255,255,0.2);
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-legal a {
+            color: rgba(74, 222, 128, 0.5) !important;
+            text-decoration: none;
+        }
+
+        .bottom-bar {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #046307, #4ade80, #046307, transparent);
+            border-radius: 0 0 2px 2px;
         }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <div class="hero">
-            <!-- Provided by cid or external URL -->
-            <img src="https://rccg.org/wp-content/uploads/2020/05/Rccg_logo.png" style="width: 80px; padding: 20px;" alt="RCCG Logo">
+        <div class="accent-bar"></div>
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-lockup">
+                <div class="logo-ring">
+                    <img src="https://rccg.org/wp-content/uploads/2020/05/Rccg_logo.png" alt="RCCG">
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">Breakthrough Cathedral</div>
+                    <div class="brand-sub">RCCG</div>
+                </div>
+            </div>
+            <div class="header-date">
+                <%= new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %>
+            </div>
         </div>
-        
+
+        <!-- HERO -->
+        <div class="hero-banner">
+            <div class="hero-eyebrow">Message from the Church</div>
+            <div class="hero-title"><%= subject %></div>
+        </div>
+
+        <!-- BODY -->
         <div class="content">
-            <h1><%= subject %></h1>
-            <p>Dear Member,</p>
-            <div style="font-size: 16px; color: #4a5568;">
+            <div class="salutation">Dear Member</div>
+            <div class="divider-line"></div>
+
+            <div class="body-text">
                 <%- content %>
             </div>
-            
-            <a href="https://rccg.org" class="button">Visit Our Website</a>
-        </div>
-        
-        <div class="footer">
-            <p><strong>Breakthrough Cathedral (RCCG)</strong></p>
-            <p>Growing in Faith, Serving in Love</p>
-            <div style="margin-top: 15px;">
-                <a href="#" style="color: #046307; margin: 0 10px;">Facebook</a> | 
-                <a href="#" style="color: #046307; margin: 0 10px;">Twitter</a> | 
-                <a href="#" style="color: #046307; margin: 0 10px;">Instagram</a>
+
+            <div class="cta-wrap">
+                <a href="https://rccg.org" class="button">Visit Website</a>
+                <a href="#" class="button-ghost">Learn More</a>
             </div>
-            <p style="margin-top: 20px; font-size: 11px;">
-                You are receiving this because you subscribed to our newsletter.<br>
-                <a href="#" style="color: #999;">Unsubscribe</a>
-            </p>
+
+            <div class="signature">
+                <div class="sig-line">Warmly,</div>
+                <div class="sig-name">Breakthrough Cathedral</div>
+                <div class="sig-role">RCCG · Jesus Christ is the same, yesterday, today and forever</div>
+            </div>
         </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div class="footer-org">Breakthrough Cathedral (RCCG)</div>
+            <div class="footer-tagline">Growing in Faith · Serving in Love</div>
+
+            <div class="social-row" style="margin-top: 16px;">
+                <a href="#" class="social-link" title="Facebook">f</a>
+                <a href="#" class="social-link" title="Twitter">𝕏</a>
+                <a href="#" class="social-link" title="Instagram">IG</a>
+                <a href="#" class="social-link" title="YouTube">▶</a>
+            </div>
+
+            <div class="footer-legal">
+                You're receiving this email because you're part of our church family.<br>
+                <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Contact Us</a>
+            </div>
+        </div>
+
+        <div class="bottom-bar"></div>
     </div>
 </body>
 </html>
