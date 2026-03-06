@@ -99,9 +99,11 @@ const apiRegisterUser = async (req, res) => {
             html: mailContent,
         };
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) console.error("Email error:", error);
-        });
+        try {
+            await transporter.sendMail(mailOptions);
+        } catch (mailError) {
+            console.error("Registration welcome email error:", mailError);
+        }
 
         res.json({ success: true, message: "Registration Successful! Welcome email sent." });
 
