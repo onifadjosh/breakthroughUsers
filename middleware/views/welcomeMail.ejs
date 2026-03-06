@@ -1,461 +1,304 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Welcome to Breakthrough Cathedral</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <!--[if mso]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'DM Sans', Arial, sans-serif;
             background-color: #0d1a0e;
-            background-image:
-                radial-gradient(ellipse at 20% 50%, rgba(4,99,7,0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(4,99,7,0.08) 0%, transparent 50%);
             margin: 0;
-            padding: 40px 16px;
-            -webkit-font-smoothing: antialiased;
+            padding: 0;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
-
-        .wrapper { max-width: 600px; margin: 0 auto; }
-
-        /* ── ACCENT BARS ── */
-        .accent-bar-top {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #1db922, #4ade80, #1db922, transparent);
-            border-radius: 2px 2px 0 0;
-        }
-        .accent-bar-bottom {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #046307, #4ade80, #046307, transparent);
-            border-radius: 0 0 2px 2px;
-        }
-
-        /* ── HEADER ── */
-        .header {
-            background: #0f1f10;
-            padding: 28px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-left: 1px solid rgba(74,222,128,0.08);
-            border-right: 1px solid rgba(74,222,128,0.08);
-        }
-        .logo-lockup { display: flex; align-items: center; gap: 14px; }
-        .logo-ring {
-            width: 50px; height: 50px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(74,222,128,0.3);
-            display: flex; align-items: center; justify-content: center;
-            background: rgba(4,99,7,0.2);
-            flex-shrink: 0;
-        }
-        .logo-ring img { width: 34px; height: 34px; object-fit: contain; }
-        .brand-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 17px; font-weight: 600;
-            color: #f0fdf0; letter-spacing: 0.02em; line-height: 1.2;
-        }
-        .brand-sub {
-            font-size: 10px; font-weight: 300; color: #4ade80;
-            letter-spacing: 0.14em; text-transform: uppercase; margin-top: 2px;
-        }
-        .header-tag {
-            font-size: 10px; color: rgba(255,255,255,0.25);
-            letter-spacing: 0.1em; text-transform: uppercase;
-        }
-
-        /* ── WELCOME HERO ── */
-        .hero {
-            background: linear-gradient(145deg, #062508 0%, #0a3d0c 50%, #062508 100%);
-            padding: 52px 44px 44px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            border-left: 1px solid rgba(74,222,128,0.08);
-            border-right: 1px solid rgba(74,222,128,0.08);
-        }
-        .hero::before {
-            content: '';
-            position: absolute; top: -80px; left: -80px;
-            width: 250px; height: 250px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(29,185,34,0.1) 0%, transparent 70%);
-        }
-        .hero::after {
-            content: '';
-            position: absolute; bottom: -50px; right: -50px;
-            width: 200px; height: 200px; border-radius: 50%;
-            background: radial-gradient(circle, rgba(29,185,34,0.07) 0%, transparent 70%);
-        }
-        .hero-eyebrow {
-            display: inline-block;
-            font-size: 10px; font-weight: 500;
-            letter-spacing: 0.18em; text-transform: uppercase;
-            color: #4ade80;
-            background: rgba(74,222,128,0.07);
-            border: 1px solid rgba(74,222,128,0.18);
-            border-radius: 20px; padding: 5px 14px;
-            margin-bottom: 20px;
-        }
-        .hero-welcome {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 14px; font-weight: 400;
-            color: rgba(255,255,255,0.45);
-            letter-spacing: 0.15em; text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-        .hero-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 42px; font-weight: 700;
-            color: #f0fdf0; line-height: 1.1;
-            position: relative; z-index: 1;
-        }
-        .hero-name span { color: #4ade80; font-style: italic; }
-        .hero-caption {
-            margin-top: 14px;
-            font-size: 14px; font-weight: 300;
-            color: rgba(255,255,255,0.45); letter-spacing: 0.03em;
-        }
-
-        /* ── SCRIPTURE BAND ── */
-        .scripture-band {
-            background: #046307;
-            background: linear-gradient(135deg, #035205, #068a0b);
-            padding: 24px 44px;
-            text-align: center;
-            border-left: 1px solid rgba(74,222,128,0.08);
-            border-right: 1px solid rgba(74,222,128,0.08);
-        }
-        .scripture-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 17px; font-style: italic; font-weight: 400;
-            color: rgba(255,255,255,0.9); line-height: 1.6;
-        }
-        .scripture-ref {
-            font-size: 11px; font-weight: 500;
-            color: rgba(255,255,255,0.55);
-            letter-spacing: 0.12em; text-transform: uppercase;
-            margin-top: 8px;
-        }
-
-        /* ── MAIN CONTENT ── */
-        .content {
-            background: #fff;
-            padding: 48px 44px;
-            border-left: 1px solid rgba(74,222,128,0.08);
-            border-right: 1px solid rgba(74,222,128,0.08);
-        }
-        .intro-text {
-            font-size: 15.5px; line-height: 1.85;
-            color: #4b5563; font-weight: 300;
-            margin-bottom: 36px;
-        }
-
-        /* ── SECTION HEADING ── */
-        .section-heading {
-            display: flex; align-items: center; gap: 12px;
-            margin-bottom: 20px;
-        }
-        .section-heading-line {
-            flex: 1; height: 1px;
-            background: linear-gradient(90deg, #e5e7eb, transparent);
-        }
-        .section-heading-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 20px; font-weight: 600;
-            color: #046307; white-space: nowrap;
-        }
-
-        /* ── EVENT CARDS ── */
-        .events-grid { display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
-        .event-card {
-            background: #f8fdf8;
-            border: 1px solid #e6f4e6;
-            border-left: 3px solid #046307;
-            border-radius: 8px;
-            padding: 20px 22px;
-            display: flex; gap: 18px; align-items: flex-start;
-        }
-        .event-icon {
-            width: 42px; height: 42px; border-radius: 10px;
-            background: linear-gradient(135deg, #046307, #068a0b);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px; flex-shrink: 0;
-        }
-        .event-info {}
-        .event-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 17px; font-weight: 600; color: #1a2e1a;
-            margin-bottom: 6px;
-        }
-        .event-meta {
-            font-size: 12.5px; color: #6b7280; line-height: 1.7;
-        }
-        .event-meta strong { color: #374151; font-weight: 500; }
-
-        /* ── CTA SECTION ── */
-        .cta-section { margin-bottom: 36px; }
-        .cta-grid { display: flex; gap: 12px; flex-wrap: wrap; }
-        .cta-card {
-            flex: 1; min-width: 160px;
-            background: #f8fdf8;
-            border: 1px solid #d1e7d1;
-            border-radius: 8px;
-            padding: 20px 18px;
-            text-decoration: none;
-            text-align: center;
-            display: block;
-        }
-        .cta-card-icon { font-size: 24px; margin-bottom: 8px; }
-        .cta-card-label {
-            font-size: 13px; font-weight: 500;
-            color: #046307; letter-spacing: 0.04em;
-        }
-        .cta-card-desc {
-            font-size: 11.5px; color: #9ca3af;
-            margin-top: 4px; line-height: 1.4;
-        }
-
-        /* ── INFO BOX ── */
-        .info-box {
-            background: #f8fdf8;
-            border: 1px solid #d1e7d1;
-            border-radius: 8px;
-            padding: 20px 22px;
-            margin-bottom: 36px;
-            font-size: 13.5px; color: #4b5563; line-height: 1.7;
-        }
-        .info-box strong { color: #046307; }
-
-        /* ── SIGNATURE ── */
-        .signature {
-            padding-top: 28px;
-            border-top: 1px solid #f0f0f0;
-        }
-        .sig-line { font-size: 13px; color: #9ca3af; margin-bottom: 4px; }
-        .sig-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px; font-weight: 600; color: #046307;
-        }
-        .sig-role { font-size: 12px; color: #6b7280; margin-top: 2px; letter-spacing: 0.04em; }
-
-        /* ── FOOTER ── */
-        .footer {
-            background: #0f1f10;
-            padding: 32px 40px;
-            border-left: 1px solid rgba(74,222,128,0.08);
-            border-right: 1px solid rgba(74,222,128,0.08);
-            border-bottom: 1px solid rgba(74,222,128,0.08);
-        }
-        .footer-org {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 15px; font-weight: 600;
-            color: rgba(255,255,255,0.6); margin-bottom: 4px;
-        }
-        .footer-tagline {
-            font-size: 10px; color: rgba(255,255,255,0.2);
-            letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;
-        }
-        .footer-contact {
-            font-size: 12px; color: rgba(255,255,255,0.3);
-            line-height: 1.8; margin-bottom: 16px;
-        }
-        .social-row { display: flex; gap: 8px; margin-bottom: 20px; }
-        .social-link {
-            display: inline-flex; align-items: center; justify-content: center;
-            width: 32px; height: 32px; border-radius: 50%;
-            background: rgba(74,222,128,0.07);
-            border: 1px solid rgba(74,222,128,0.15);
-            color: #4ade80 !important; text-decoration: none;
-            font-size: 11px; font-weight: 500;
-        }
-        .footer-legal {
-            padding-top: 16px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 10.5px; color: rgba(255,255,255,0.18);
-            line-height: 1.7;
-        }
-        .footer-legal a { color: rgba(74,222,128,0.4) !important; text-decoration: none; }
-
+        table { border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+        
         /* ── RESPONSIVE STYLES ── */
         @media only screen and (max-width: 600px) {
-            body { padding: 20px 10px !important; }
-            .wrapper { width: 100% !important; margin: 0 !important; }
-            
-            .header { padding: 20px !important; }
-            .logo-ring { width: 40px !important; height: 40px !important; }
-            .logo-ring img { width: 28px !important; height: 28px !important; }
-            .brand-name { font-size: 15px !important; }
-            .header-tag { display: none; }
-
-            .hero { padding: 40px 20px 30px !important; }
+            .wrapper { width: 100% !important; }
+            .content-padding { padding: 30px 20px !important; }
             .hero-name { font-size: 32px !important; }
             .hero-welcome { font-size: 12px !important; }
             .hero-caption { font-size: 13px !important; }
-
-            .scripture-band { padding: 20px !important; }
-            .scripture-text { font-size: 15px !important; }
-
-            .content { padding: 30px 20px !important; }
-            .intro-text { font-size: 14.5px !important; line-height: 1.7 !important; }
-
-            .event-card { padding: 15px !important; gap: 12px !important; }
-            .event-icon { width: 36px !important; height: 36px !important; font-size: 16px !important; }
-            .event-title { font-size: 16px !important; }
-            .event-meta { font-size: 12px !important; }
-
-            .cta-grid { gap: 10px !important; }
-            .cta-card { min-width: 100% !important; padding: 15px !important; text-align: left !important; display: flex !important; align-items: center !important; gap: 15px !important; }
-            .cta-card-icon { margin-bottom: 0 !important; font-size: 20px !important; }
-            .cta-card-desc { display: none; }
-
-            .footer { padding: 30px 20px !important; }
-            .footer-contact { font-size: 11px !important; }
+            .event-table { width: 100% !important; }
+            .cta-btn { width: 100% !important; display: block !important; margin-bottom: 15px !important; }
+            .mobile-hide { display: none !important; }
+            .mobile-block { display: block !important; width: 100% !important; }
+            .logo-cell { padding-right: 0 !important; padding-bottom: 10px !important; text-align: center !important; }
+            .header-tag-cell { text-align: center !important; }
         }
     </style>
 </head>
-<body>
-    <div class="wrapper">
-        <div class="accent-bar-top"></div>
+<body style="margin: 0; padding: 0; background-color: #0d1a0e;">
+    <center>
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #0d1a0e; background-image: radial-gradient(ellipse at 20% 50%, rgba(4,99,7,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(4,99,7,0.08) 0%, transparent 50%);">
+            <tr>
+                <td align="center" style="padding: 40px 10px;">
+                    <!-- [if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+                    <tr>
+                    <td align="center" valign="top" width="600">
+                    <![endif]-->
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; background-color: #0f1f10; border-radius: 4px; overflow: hidden;" class="wrapper">
+                        
+                        <!-- ACCENT TOP -->
+                        <tr>
+                            <td height="3" style="background: linear-gradient(90deg, transparent, #1db922, #4ade80, #1db922, transparent);"></td>
+                        </tr>
 
-        <!-- HEADER -->
-        <div class="header">
-            <div class="logo-lockup">
-                <div class="logo-ring">
-                    <img src="https://e7.pngegg.com/pngimages/763/220/png-clipart-redeemed-christian-church-of-god-hrm-parish-welcome-to-the-christian-world-christianity-label.png" alt="RCCG">
-                </div>
-                <div>
-                    <div class="brand-name">Breakthrough Cathedral</div>
-                    <div class="brand-sub">RCCG</div>
-                </div>
-            </div>
-            <div class="header-tag">Welcome</div>
-        </div>
+                        <!-- HEADER -->
+                        <tr>
+                            <td style="padding: 30px 40px; border-left: 1px solid rgba(74,222,128,0.08); border-right: 1px solid rgba(74,222,128,0.08);" class="content-padding">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td class="logo-cell">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" align="left">
+                                                <tr>
+                                                    <td width="50" height="50" align="center" valign="middle" 
+    style="background-image: url('https://e7.pngegg.com/pngimages/763/220/png-clipart-redeemed-christian-church-of-god-hrm-parish-welcome-to-the-christian-world-christianity-label.png'); 
+           background-size: cover; 
+           background-position: center; 
+           /* border: 1.5px solid rgba(74,222,128,0.3);  */
+           border-radius: 50%;">
+</td>
+                                                    <td style="padding-left: 14px;">
+                                                        <div style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: #f0fdf0; letter-spacing: 0.02em; line-height: 1.2;">Breakthrough Cathedral</div>
+                                                        <div style="font-size: 10px; font-weight: 300; color: #4ade80; letter-spacing: 0.14em; text-transform: uppercase;">RCCG</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="right" valign="middle" class="header-tag-cell">
+                                            <span style="font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase;" class="mobile-hide">Welcome</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
 
-        <!-- HERO -->
-        <div class="hero">
-            <div class="hero-eyebrow">You're part of the family</div>
-            <div class="hero-welcome">Welcome,</div>
-            <div class="hero-name"><span><%= firstname %> <%= lastname %></span></div>
-            <div class="hero-caption">We're so glad you're here with us.</div>
-        </div>
+                        <!-- HERO -->
+                        <tr>
+                            <td align="center" style="background: linear-gradient(145deg, #062508 0%, #0a3d0c 50%, #062508 100%); padding: 50px 40px; border-left: 1px solid rgba(74,222,128,0.08); border-right: 1px solid rgba(74,222,128,0.08);" class="content-padding">
+                                <div style="display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4ade80; background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.18); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;">You're part of the family</div>
+                                <div style="font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 400; color: rgba(255,255,255,0.45); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px;" class="hero-welcome">Welcome,</div>
+                                <div style="font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 700; color: #f0fdf0; line-height: 1.1;" class="hero-name"><span style="color: #4ade80; font-style: italic;"><%= firstname %> <%= lastname %></span></div>
+                                <div style="margin-top: 14px; font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.45); letter-spacing: 0.03em;" class="hero-caption">We're so glad you're here with us.</div>
+                            </td>
+                        </tr>
 
-        <!-- SCRIPTURE BAND -->
-        <div class="scripture-band">
-            <div class="scripture-text">"For where two or three gather in my name, there am I with them."</div>
-            <div class="scripture-ref">Matthew 18:20</div>
-        </div>
+                        <!-- SCRIPTURE -->
+                        <tr>
+                            <td align="center" style="background: linear-gradient(135deg, #035205, #068a0b); padding: 24px 40px; border-left: 1px solid rgba(74,222,128,0.08); border-right: 1px solid rgba(74,222,128,0.08);" class="content-padding">
+                                <div style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; font-weight: 400; color: rgba(255,255,255,0.9); line-height: 1.6;">"For where two or three gather in my name, there am I with them."</div>
+                                <div style="font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.55); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 8px;">Matthew 18:20</div>
+                            </td>
+                        </tr>
 
-        <!-- BODY CONTENT -->
-        <div class="content">
-            <p class="intro-text">
-                We are absolutely thrilled to welcome you to our church family. It's a joy to have you join us on this faith journey — a place of growth, love, and community that we pray will be a true home for you.
-            </p>
+                        <!-- BODY CONTENT -->
+                        <tr>
+                            <td style="background-color: #ffffff; padding: 48px 40px; border-left: 1px solid rgba(74,222,128,0.08); border-right: 1px solid rgba(74,222,128,0.08);" class="content-padding">
+                                <div style="font-size: 15.5px; line-height: 1.85; color: #4b5563; font-weight: 300; margin-bottom: 36px;">
+                                    We are absolutely thrilled to welcome you to our church family. It's a joy to have you join us on this faith journey — a place of growth, love, and community that we pray will be a true home for you.
+                                </div>
 
-            <!-- THIS WEEK -->
-            <div class="section-heading">
-                <div class="section-heading-text">This Week's Highlights</div>
-                <div class="section-heading-line"></div>
-            </div>
+                                <!-- SECTION HEADING -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 20px;">
+                                    <tr>
+                                        <td width="1%" style="white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #046307; padding-right: 12px;">This Week's Highlights</td>
+                                        <td style="vertical-align: middle;"><div style="height: 1px; background: linear-gradient(90deg, #e5e7eb, transparent);"></div></td>
+                                    </tr>
+                                </table>
 
-            <div class="events-grid">
-                <div class="event-card">
-                    <div class="event-icon">📖</div>
-                    <div class="event-info">
-                        <div class="event-title">Sunday Worship Service</div>
-                        <div class="event-meta">
-                            <strong>7:45 AM</strong> · Main Sanctuary<br>
-                            "Walking in Faith Through Uncertain Times"
-                        </div>
-                    </div>
-                </div>
-                <div class="event-card">
-                    <div class="event-icon">🙏</div>
-                    <div class="event-info">
-                        <div class="event-title">Tuesday Digging Deep</div>
-                        <div class="event-meta">
-                            <strong>5:00 PM</strong> · Church Building<br>
-                            Bible Study & Prayer
-                        </div>
-                    </div>
-                </div>
+                                <!-- EVENTS -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 30px;">
+                                    <!-- EVENT 1 -->
+                                    <tr>
+                                        <td style="padding-bottom: 14px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background: #f8fdf8; border: 1px solid #e6f4e6; border-left: 3px solid #046307; border-radius: 8px; padding: 20px;">
+                                                <tr>
+                                                    <td width="42" style="padding-right: 18px;" valign="top">
+                                                        <div style="width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, #046307, #068a0b); color: #ffffff; line-height: 42px; text-align: center; font-size: 18px;">📖</div>
+                                                    </td>
+                                                    <td>
+                                                        <div style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: #1a2e1a; margin-bottom: 4px;">Sunday Worship Service</div>
+                                                        <div style="font-size: 12.5px; color: #6b7280; line-height: 1.7;">
+                                                            <strong style="color: #374151; font-weight: 500;">7:45 AM</strong> · Main Sanctuary<br>
+                                                            "Walking in Faith Through Uncertain Times"
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- EVENT 2 -->
+                                    <tr>
+                                        <td style="padding-bottom: 14px;">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background: #f8fdf8; border: 1px solid #e6f4e6; border-left: 3px solid #046307; border-radius: 8px; padding: 20px;">
+                                                <tr>
+                                                    <td width="42" style="padding-right: 18px;" valign="top">
+                                                        <div style="width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, #046307, #068a0b); color: #ffffff; line-height: 42px; text-align: center; font-size: 18px;">🙏</div>
+                                                    </td>
+                                                    <td>
+                                                        <div style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: #1a2e1a; margin-bottom: 4px;">Tuesday Digging Deep</div>
+                                                        <div style="font-size: 12.5px; color: #6b7280; line-height: 1.7;">
+                                                            <strong style="color: #374151; font-weight: 500;">5:00 PM</strong> · Church Building<br>
+                                                            Bible Study & Prayer
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- EVENT 3 -->
+                                    <tr>
+                                        <td>
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background: #f8fdf8; border: 1px solid #e6f4e6; border-left: 3px solid #046307; border-radius: 8px; padding: 20px;">
+                                                <tr>
+                                                    <td width="42" style="padding-right: 18px;" valign="top">
+                                                        <div style="width: 42px; height: 42px; border-radius: 10px; background: linear-gradient(135deg, #046307, #068a0b); color: #ffffff; line-height: 42px; text-align: center; font-size: 18px;">🙏</div>
+                                                    </td>
+                                                    <td>
+                                                        <div style="font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 600; color: #1a2e1a; margin-bottom: 4px;">Thursday Prayer Meeting</div>
+                                                        <div style="font-size: 12.5px; color: #6b7280; line-height: 1.7;">
+                                                            <strong style="color: #374151; font-weight: 500;">5:00 PM</strong> · Church Building<br>
+                                                            Community Prayer & Support
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
 
+                                <!-- GET CONNECTED -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 20px;">
+                                    <tr>
+                                        <td width="1%" style="white-space: nowrap; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #046307; padding-right: 12px;">Get Connected</td>
+                                        <td style="vertical-align: middle;"><div style="height: 1px; background: linear-gradient(90deg, #e5e7eb, transparent);"></div></td>
+                                    </tr>
+                                </table>
 
-                <div class="event-card">
-                    <div class="event-icon">🙏</div>
-                    <div class="event-info">
-                        <div class="event-title">Thursday Prayer Meeting</div>
-                        <div class="event-meta">
-                            <strong>5:00 PM</strong> · Church Building<br>
-                            Community Prayer & Support
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 30px;">
+                                    <tr>
+                                        <td>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            <table border="0" cellspacing="0" cellpadding="0"><tr><td width="180" valign="top">
+                                            <![endif]-->
+                                            <div style="display: inline-block; width: 100%; max-width: 160px; vertical-align: top;" class="cta-btn">
+                                                <a href="https://yourchurchwebsite.com/small-groups" style="text-decoration: none; display: block; background: #f8fdf8; border: 1px solid #d1e7d1; border-radius: 8px; padding: 20px; text-align: center; margin: 5px;">
+                                                    <div style="font-size: 24px; margin-bottom: 8px;">👥</div>
+                                                    <div style="font-size: 13px; font-weight: 500; color: #046307; letter-spacing: 0.04em;">Small Group</div>
+                                                </a>
+                                            </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            </td><td width="180" valign="top">
+                                            <![endif]-->
+                                            <div style="display: inline-block; width: 100%; max-width: 160px; vertical-align: top;" class="cta-btn">
+                                                <a href="https://yourchurchwebsite.com/volunteer" style="text-decoration: none; display: block; background: #f8fdf8; border: 1px solid #d1e7d1; border-radius: 8px; padding: 20px; text-align: center; margin: 5px;">
+                                                    <div style="font-size: 24px; margin-bottom: 8px;">🤝</div>
+                                                    <div style="font-size: 13px; font-weight: 500; color: #046307; letter-spacing: 0.04em;">Volunteer</div>
+                                                </a>
+                                            </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            </td><td width="180" valign="top">
+                                            <![endif]-->
+                                            <div style="display: inline-block; width: 100%; max-width: 160px; vertical-align: top;" class="cta-btn">
+                                                <a href="https://www.facebook.com/rccg.btc/" style="text-decoration: none; display: block; background: #f8fdf8; border: 1px solid #d1e7d1; border-radius: 8px; padding: 20px; text-align: center; margin: 5px;">
+                                                    <div style="font-size: 24px; margin-bottom: 8px;">🌐</div>
+                                                    <div style="font-size: 13px; font-weight: 500; color: #046307; letter-spacing: 0.04em;">Visit Us</div>
+                                                </a>
+                                            </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            </td></tr></table>
+                                            <![endif]-->
+                                        </td>
+                                    </tr>
+                                </table>
 
-            <!-- GET CONNECTED -->
-            <div class="section-heading">
-                <div class="section-heading-text">Get Connected</div>
-                <div class="section-heading-line"></div>
-            </div>
+                                <!-- INFO BOX -->
+                                <div style="background: #f8fdf8; border: 1px solid #d1e7d1; border-radius: 8px; padding: 20px; margin-bottom: 36px; font-size: 13.5px; color: #4b5563; line-height: 1.7;">
+                                    <strong style="color: #046307;">Stay Updated</strong><br>
+                                    This newsletter is sent monthly with updates, events, and spiritual encouragement. Add us to your contacts to make sure our emails reach your inbox.
+                                </div>
 
-            <div class="cta-grid" style="margin-bottom: 36px;">
-                <a href="https://yourchurchwebsite.com/small-groups" class="cta-card">
-                    <div class="cta-card-icon">👥</div>
-                    <div class="cta-card-label">Join a Small Group</div>
-                    <div class="cta-card-desc">Find your community</div>
-                </a>
-                <a href="https://yourchurchwebsite.com/volunteer" class="cta-card">
-                    <div class="cta-card-icon">🤝</div>
-                    <div class="cta-card-label">Volunteer</div>
-                    <div class="cta-card-desc">Serve with your gifts</div>
-                </a>
-                <a href="https://www.facebook.com/rccg.btc/" class="cta-card">
-                    <div class="cta-card-icon">🌐</div>
-                    <div class="cta-card-label">Visit Website</div>
-                    <div class="cta-card-desc">Explore resources</div>
-                </a>
-            </div>
+                                <!-- SIGNATURE -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-top: 1px solid #f0f0f0; padding-top: 28px;">
+                                    <tr>
+                                        <td>
+                                            <div style="font-size: 13px; color: #9ca3af; margin-bottom: 4px;">With love,</div>
+                                            <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #046307;">Breakthrough Cathedral</div>
+                                            <div style="font-size: 12px; color: #6b7280; margin-top: 2px; letter-spacing: 0.04em;">RCCG · Jesus Christ is the same, yesterday, today and forever</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
 
-            <!-- STAY UPDATED -->
-            <div class="info-box">
-                <strong>Stay Updated</strong><br>
-                This newsletter is sent monthly with updates, events, and spiritual encouragement. Add us to your contacts to make sure our emails reach your inbox.
-            </div>
+                        <!-- FOOTER -->
+                        <tr>
+                            <td style="background: #0f1f10; padding: 32px 40px; border-left: 1px solid rgba(74,222,128,0.08); border-right: 1px solid rgba(74,222,128,0.08); border-bottom: 1px solid rgba(74,222,128,0.08);" class="content-padding">
+                                <div style="font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); margin-bottom: 4px;">Breakthrough Cathedral (RCCG)</div>
+                                <div style="font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Jesus Christ is the same, yesterday, today and forever</div>
+                                <div style="font-size: 12px; color: rgba(255,255,255,0.3); line-height: 1.8; margin-bottom: 16px;">
+                                    RCCG Breakthrough Cathedral, Ogo-Oluwa, Osogbo, Osun State.<br>
+                                    +2349057684553 · rccg.btc@gmail.com
+                                </div>
 
-            <!-- SIGNATURE -->
-            <div class="signature">
-                <div class="sig-line">With love,</div>
-                <div class="sig-name">Breakthrough Cathedral</div>
-                <div class="sig-role">RCCG · Jesus Christ is the same, yesterday, today and forever</div>
-            </div>
-        </div>
+                                <!-- SOCIALS -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
+                                    <tr>
+                                        <td style="padding-right: 8px;">
+                                            <a href="https://www.facebook.com/rccg.btc/" style="display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.15); color: #4ade80 !important; text-decoration: none; font-size: 11px; font-weight: 500;">f</a>
+                                        </td>
+                                        <td style="padding-right: 8px;">
+                                            <a href="#" style="display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.15); color: #4ade80 !important; text-decoration: none; font-size: 11px; font-weight: 500;">𝕏</a>
+                                        </td>
+                                        <td style="padding-right: 8px;">
+                                            <a href="https://www.instagram.com/rccg.btc" style="display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.15); color: #4ade80 !important; text-decoration: none; font-size: 11px; font-weight: 500;">IG</a>
+                                        </td>
+                                        <td>
+                                            <a href="https://www.facebook.com/rccg.btc/" style="display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border-radius: 50%; background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.15); color: #4ade80 !important; text-decoration: none; font-size: 11px; font-weight: 500;">▶</a>
+                                        </td>
+                                    </tr>
+                                </table>
 
-        <!-- FOOTER -->
-        <div class="footer">
-            <div class="footer-org">Breakthrough Cathedral (RCCG)</div>
-            <div class="footer-tagline">Jesus Christ is the same, yesterday, today and forever</div>
-            <div class="footer-contact">
-                RCCG Breakthrough Cathedral, Ogo-Oluwa, Osogbo, Osun State.<br>
-                +2349057684553 · rccg.btc@gmail.com
-            </div>
-            <div class="social-row">
-                <a href="https://www.facebook.com/rccg.btc/" class="social-link" title="Facebook">f</a>
-                <a href="#" class="social-link" title="Twitter">𝕏</a>
-                <a href="https://www.instagram.com/rccg.btc" class="social-link" title="Instagram">IG</a>
-                <a href="https://www.facebook.com/rccg.btc/" class="social-link" title="YouTube">▶</a>
-            </div>
-            <div class="footer-legal">
-                You're receiving this email because you expressed interest in Breakthrough Cathedral.<br>
-                <a href="https://yourchurchwebsite.com/unsubscribe">Unsubscribe</a> &nbsp;·&nbsp;
-                <a href="https://yourchurchwebsite.com/preferences">Update Preferences</a> &nbsp;·&nbsp;
-                <a href="https://www.facebook.com/rccg.btc/">Website</a>
-            </div>
-        </div>
+                                <div style="padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 10.5px; color: rgba(255,255,255,0.18); line-height: 1.7;">
+                                    You're receiving this email because you expressed interest in Breakthrough Cathedral.<br>
+                                    <a href="https://yourchurchwebsite.com/unsubscribe" style="color: rgba(74,222,128,0.4) !important; text-decoration: none;">Unsubscribe</a> &nbsp;·&nbsp;
+                                    <a href="https://yourchurchwebsite.com/preferences" style="color: rgba(74,222,128,0.4) !important; text-decoration: none;">Update Preferences</a> &nbsp;·&nbsp;
+                                    <a href="https://www.facebook.com/rccg.btc/" style="color: rgba(74,222,128,0.4) !important; text-decoration: none;">Website</a>
+                                </div>
+                            </td>
+                        </tr>
 
-        <div class="accent-bar-bottom"></div>
-    </div>
+                        <!-- ACCENT BOTTOM -->
+                        <tr>
+                            <td height="3" style="background: linear-gradient(90deg, transparent, #046307, #4ade80, #046307, transparent);"></td>
+                        </tr>
+                    </table>
+                    <!-- [if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
 </html>

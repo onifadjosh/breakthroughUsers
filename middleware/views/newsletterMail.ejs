@@ -1,428 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><%= subject %></title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <!--[if mso]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'DM Sans', Arial, sans-serif;
             background-color: #0d1a0e;
-            background-image: 
-                radial-gradient(ellipse at 20% 50%, rgba(4, 99, 7, 0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(4, 99, 7, 0.08) 0%, transparent 50%);
             margin: 0;
-            padding: 40px 16px;
-            -webkit-font-smoothing: antialiased;
+            padding: 0;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
-
-        .wrapper {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* ── TOP ACCENT BAR ── */
-        .accent-bar {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #1db922, #4ade80, #1db922, transparent);
-            border-radius: 2px 2px 0 0;
-        }
-
-        /* ── HEADER ── */
-        .header {
-            background: #0f1f10;
-            padding: 36px 40px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-left: 1px solid rgba(74, 222, 128, 0.08);
-            border-right: 1px solid rgba(74, 222, 128, 0.08);
-        }
-
-        .logo-lockup {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .logo-ring {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(74, 222, 128, 0.35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(4, 99, 7, 0.2);
-            flex-shrink: 0;
-        }
-
-        .logo-ring img {
-            width: 36px;
-            height: 36px;
-            object-fit: contain;
-            filter: brightness(1.1);
-        }
-
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 18px;
-            font-weight: 600;
-            color: #f0fdf0;
-            letter-spacing: 0.02em;
-            line-height: 1.2;
-        }
-
-        .brand-sub {
-            font-size: 11px;
-            font-weight: 300;
-            color: #4ade80;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-top: 2px;
-        }
-
-        .header-date {
-            font-size: 11px;
-            font-weight: 400;
-            color: rgba(255,255,255,0.3);
-            letter-spacing: 0.08em;
-            text-align: right;
-            text-transform: uppercase;
-        }
-
-        /* ── HERO BANNER ── */
-        .hero-banner {
-            background: linear-gradient(135deg, #062508 0%, #0a3d0c 40%, #062508 100%);
-            position: relative;
-            padding: 56px 40px 48px;
-            text-align: center;
-            overflow: hidden;
-            border-left: 1px solid rgba(74, 222, 128, 0.08);
-            border-right: 1px solid rgba(74, 222, 128, 0.08);
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: -60px; left: -60px;
-            width: 220px; height: 220px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(29, 185, 34, 0.12) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: -40px; right: -40px;
-            width: 180px; height: 180px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(29, 185, 34, 0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-eyebrow {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: #4ade80;
-            background: rgba(74, 222, 128, 0.08);
-            border: 1px solid rgba(74, 222, 128, 0.2);
-            border-radius: 20px;
-            padding: 5px 14px;
-            margin-bottom: 20px;
-        }
-
-        .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 36px;
-            font-weight: 700;
-            color: #f0fdf0;
-            line-height: 1.2;
-            letter-spacing: -0.01em;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-title em {
-            font-style: italic;
-            color: #4ade80;
-        }
-
-        /* ── CONTENT ── */
-        .content {
-            background: #ffffff;
-            padding: 48px 44px;
-            border-left: 1px solid rgba(74, 222, 128, 0.08);
-            border-right: 1px solid rgba(74, 222, 128, 0.08);
-        }
-
-        .salutation {
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #046307;
-            margin-bottom: 10px;
-        }
-
-        .divider-line {
-            width: 36px;
-            height: 2px;
-            background: linear-gradient(90deg, #046307, #4ade80);
-            border-radius: 1px;
-            margin-bottom: 24px;
-        }
-
-        .body-text {
-            font-size: 15.5px;
-            line-height: 1.8;
-            color: #374151;
-            font-weight: 300;
-        }
-
-        .body-text p {
-            margin-bottom: 18px;
-        }
-
-        .cta-wrap {
-            margin-top: 36px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 14px 30px;
-            background: linear-gradient(135deg, #046307 0%, #068a0b 100%);
-            color: #ffffff !important;
-            text-decoration: none;
-            border-radius: 6px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            box-shadow: 0 4px 20px rgba(4, 99, 7, 0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-            transition: all 0.2s ease;
-        }
-
-        .button-ghost {
-            display: inline-block;
-            padding: 14px 24px;
-            color: #046307 !important;
-            text-decoration: none;
-            border-radius: 6px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            border: 1.5px solid rgba(4, 99, 7, 0.25);
-        }
-
-        /* ── SIGNATURE ── */
-        .signature {
-            margin-top: 36px;
-            padding-top: 28px;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .sig-line {
-            font-size: 13px;
-            color: #9ca3af;
-            margin-bottom: 4px;
-        }
-
-        .sig-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 22px;
-            font-weight: 600;
-            color: #046307;
-            letter-spacing: 0.01em;
-        }
-
-        .sig-role {
-            font-size: 12px;
-            color: #6b7280;
-            margin-top: 2px;
-            letter-spacing: 0.04em;
-        }
-
-        /* ── FOOTER ── */
-        .footer {
-            background: #0f1f10;
-            padding: 32px 40px;
-            border-left: 1px solid rgba(74, 222, 128, 0.08);
-            border-right: 1px solid rgba(74, 222, 128, 0.08);
-            border-bottom: 1px solid rgba(74, 222, 128, 0.08);
-            border-radius: 0 0 4px 4px;
-        }
-
-        .social-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: rgba(74, 222, 128, 0.07);
-            border: 1px solid rgba(74, 222, 128, 0.15);
-            color: #4ade80 !important;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .footer-org {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 15px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 4px;
-        }
-
-        .footer-tagline {
-            font-size: 11px;
-            color: rgba(255,255,255,0.25);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            font-weight: 300;
-        }
-
-        .footer-legal {
-            margin-top: 20px;
-            padding-top: 16px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 10.5px;
-            color: rgba(255,255,255,0.2);
-            line-height: 1.6;
-            letter-spacing: 0.02em;
-        }
-
-        .footer-legal a {
-            color: rgba(74, 222, 128, 0.5) !important;
-            text-decoration: none;
-        }
-
-        .bottom-bar {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #046307, #4ade80, #046307, transparent);
-            border-radius: 0 0 2px 2px;
-        }
-
+        table { border-collapse: collapse !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+        
         /* ── RESPONSIVE STYLES ── */
         @media only screen and (max-width: 600px) {
-            body { padding: 20px 10px !important; }
-            .wrapper { width: 100% !important; margin: 0 !important; }
-
-            .header { padding: 20px !important; }
-            .logo-ring { width: 42px !important; height: 42px !important; }
-            .logo-ring img { width: 30px !important; height: 30px !important; }
-            .brand-name { font-size: 16px !important; }
-            .header-date { display: none; }
-
-            .hero-banner { padding: 40px 20px !important; }
+            .wrapper { width: 100% !important; }
+            .content-padding { padding: 30px 20px !important; }
             .hero-title { font-size: 28px !important; }
-
-            .content { padding: 30px 20px !important; }
-            .body-text { font-size: 14.5px !important; line-height: 1.7 !important; }
-
-            .cta-wrap { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
-            .button, .button-ghost { text-align: center !important; width: 100% !important; }
-
-            .footer { padding: 30px 20px !important; }
-            .social-link { width: 32px !important; height: 32px !important; }
-            .footer-org { font-size: 14px !important; }
+            .cta-stack { width: 100% !important; display: block !important; margin-bottom: 15px !important; padding-right: 0 !important; }
+            .button, .button-ghost { width: 100% !important; text-align: center !important; display: block !important; }
+            .mobile-hide { display: none !important; }
+            .logo-cell { padding-right: 0 !important; padding-bottom: 10px !important; text-align: center !important; }
         }
     </style>
 </head>
-<body>
-    <div class="wrapper">
-        <div class="accent-bar"></div>
+<body style="margin: 0; padding: 0; background-color: #0d1a0e;">
+    <center>
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #0d1a0e; background-image: radial-gradient(ellipse at 20% 50%, rgba(4, 99, 7, 0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(4, 99, 7, 0.08) 0%, transparent 50%);">
+            <tr>
+                <td align="center" style="padding: 40px 10px;">
+                    <!-- [if (gte mso 9)|(IE)]>
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" width="600">
+                    <tr>
+                    <td align="center" valign="top" width="600">
+                    <![endif]-->
+                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; background-color: #0f1f10; border-radius: 4px; overflow: hidden;" class="wrapper">
+                        
+                        <!-- ACCENT TOP -->
+                        <tr>
+                            <td height="3" style="background: linear-gradient(90deg, transparent, #1db922, #4ade80, #1db922, transparent);"></td>
+                        </tr>
 
-        <!-- HEADER -->
-        <div class="header">
-            <div class="logo-lockup">
-                <div class="logo-ring">
-                    <img src="https://e7.pngegg.com/pngimages/763/220/png-clipart-redeemed-christian-church-of-god-hrm-parish-welcome-to-the-christian-world-christianity-label.png" alt="RCCG">
-                </div>
-                <div class="brand-text">
-                    <div class="brand-name">Breakthrough Cathedral</div>
-                    <div class="brand-sub">RCCG</div>
-                </div>
-            </div>
-            <div class="header-date">
-                <%= new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %>
-            </div>
-        </div>
+                        <!-- HEADER -->
+                        <tr>
+                            <td style="padding: 36px 40px 32px; border-left: 1px solid rgba(74, 222, 128, 0.08); border-right: 1px solid rgba(74, 222, 128, 0.08);" class="content-padding">
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                        <td class="logo-cell">
+                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" align="left">
+                                                <tr>
+                                                    <td width="50" height="50" align="center" valign="middle" 
+    style="background-image: url('https://e7.pngegg.com/pngimages/763/220/png-clipart-redeemed-christian-church-of-god-hrm-parish-welcome-to-the-christian-world-christianity-label.png'); 
+           background-size: cover; 
+           background-position: center; 
+           /* border: 1.5px solid rgba(74,222,128,0.3);  */
+           border-radius: 50%;">
+</td>
+                                                    <td style="padding-left: 14px;">
+                                                        <div style="font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: #f0fdf0; letter-spacing: 0.02em; line-height: 1.2;">Breakthrough Cathedral</div>
+                                                        <div style="font-size: 11px; font-weight: 300; color: #4ade80; letter-spacing: 0.12em; text-transform: uppercase;">RCCG</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td align="right" valign="middle">
+                                            <div style="font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase;" class="mobile-hide">
+                                                <%= new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }) %>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
 
-        <!-- HERO -->
-        <div class="hero-banner">
-            <div class="hero-eyebrow">Message from the Church</div>
-            <div class="hero-title"><%= subject %></div>
-        </div>
+                        <!-- HERO -->
+                        <tr>
+                            <td align="center" style="background: linear-gradient(135deg, #062508 0%, #0a3d0c 40%, #062508 100%); padding: 56px 40px 48px; border-left: 1px solid rgba(74, 222, 128, 0.08); border-right: 1px solid rgba(74, 222, 128, 0.08);" class="content-padding">
+                                <div style="display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #4ade80; background: rgba(74, 222, 128, 0.08); border: 1px solid rgba(74, 222, 128, 0.2); border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;">Message from the Church</div>
+                                <div style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: #f0fdf0; line-height: 1.2; letter-spacing: -0.01em;" class="hero-title"><%= subject %></div>
+                            </td>
+                        </tr>
 
-        <!-- BODY -->
-        <div class="content">
-            <div class="salutation">Dear Member</div>
-            <div class="divider-line"></div>
+                        <!-- BODY -->
+                        <tr>
+                            <td style="background-color: #ffffff; padding: 48px 44px; border-left: 1px solid rgba(74, 222, 128, 0.08); border-right: 1px solid rgba(74, 222, 128, 0.08);" class="content-padding">
+                                <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #046307; margin-bottom: 10px;">Dear Member</div>
+                                <div style="width: 36px; height: 2px; background: linear-gradient(90deg, #046307, #4ade80); border-radius: 1px; margin-bottom: 24px;"></div>
 
-            <div class="body-text">
-                <%- content %>
-            </div>
+                                <div style="font-size: 15.5px; line-height: 1.8; color: #374151; font-weight: 300;">
+                                    <%- content %>
+                                </div>
 
-            <div class="cta-wrap">
-                <a href="https://rccg.org" class="button">Visit Website</a>
-                <a href="#" class="button-ghost">Learn More</a>
-            </div>
+                                <!-- CTA BUTTONS -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 36px;">
+                                    <tr>
+                                        <td>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            <table border="0" cellspacing="0" cellpadding="0"><tr><td style="padding-right: 20px;">
+                                            <![endif]-->
+                                            <div style="display: inline-block; vertical-align: middle; padding-right: 20px;" class="cta-stack">
+                                                <a href="https://rccg.org" style="display: inline-block; padding: 14px 30px; background: linear-gradient(135deg, #046307 0%, #068a0b 100%); color: #ffffff !important; text-decoration: none; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; box-shadow: 0 4px 20px rgba(4, 99, 7, 0.3);" class="button">Visit Website</a>
+                                            </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            </td><td>
+                                            <![endif]-->
+                                            <div style="display: inline-block; vertical-align: middle;" class="cta-stack">
+                                                <a href="#" style="display: inline-block; padding: 14px 24px; color: #046307 !important; text-decoration: none; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border: 1.5px solid rgba(4, 99, 7, 0.25);" class="button-ghost">Learn More</a>
+                                            </div>
+                                            <!--[if (gte mso 9)|(IE)]>
+                                            </td></tr></table>
+                                            <![endif]-->
+                                        </td>
+                                    </tr>
+                                </table>
 
-            <div class="signature">
-                <div class="sig-line">Warmly,</div>
-                <div class="sig-name">Breakthrough Cathedral</div>
-                <div class="sig-role">RCCG · Jesus Christ is the same, yesterday, today and forever</div>
-            </div>
-        </div>
+                                <!-- SIGNATURE -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 36px; border-top: 1px solid #f0f0f0; padding-top: 28px;">
+                                    <tr>
+                                        <td>
+                                            <div style="font-size: 13px; color: #9ca3af; margin-bottom: 4px;">Warmly,</div>
+                                            <div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #046307; letter-spacing: 0.01em;">Breakthrough Cathedral</div>
+                                            <div style="font-size: 12px; color: #6b7280; margin-top: 2px; letter-spacing: 0.04em;">RCCG · Jesus Christ is the same, yesterday, today and forever</div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
 
-        <!-- FOOTER -->
-        <div class="footer">
-            <div class="footer-org">Breakthrough Cathedral (RCCG)</div>
-            <div class="footer-tagline">Growing in Faith · Serving in Love</div>
+                        <!-- FOOTER -->
+                        <tr>
+                            <td style="background: #0f1f10; padding: 32px 40px; border-left: 1px solid rgba(74, 222, 128, 0.08); border-right: 1px solid rgba(74, 222, 128, 0.08); border-bottom: 1px solid rgba(74, 222, 128, 0.08);" class="content-padding">
+                                <div style="font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 4px;">Breakthrough Cathedral (RCCG)</div>
+                                <div style="font-size: 11px; color: rgba(255,255,255,0.25); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 300;">Growing in Faith · Serving in Love</div>
 
-            <div class="social-row" style="margin-top: 16px;">
-                <a href="https://www.facebook.com/rccg.btc/" class="social-link" title="Facebook">f</a>
-                <a href="#" class="social-link" title="Twitter">𝕏</a>
-                <a href="https://www.instagram.com/rccg.btc" class="social-link" title="Instagram">IG</a>
-                <a href="https://www.facebook.com/rccg.btc/" class="social-link" title="YouTube">▶</a>
-            </div>
+                                <!-- SOCIALS -->
+                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin-top: 16px; margin-bottom: 20px;">
+                                    <tr>
+                                        <td style="padding-right: 8px;">
+                                            <a href="https://www.facebook.com/rccg.btc/" style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(74, 222, 128, 0.07); border: 1px solid rgba(74, 222, 128, 0.15); color: #4ade80 !important; text-decoration: none; font-size: 12px; font-weight: 500;" class="social-link">f</a>
+                                        </td>
+                                        <td style="padding-right: 8px;">
+                                            <a href="#" style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(74, 222, 128, 0.07); border: 1px solid rgba(74, 222, 128, 0.15); color: #4ade80 !important; text-decoration: none; font-size: 12px; font-weight: 500;" class="social-link">𝕏</a>
+                                        </td>
+                                        <td style="padding-right: 8px;">
+                                            <a href="https://www.instagram.com/rccg.btc" style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(74, 222, 128, 0.07); border: 1px solid rgba(74, 222, 128, 0.15); color: #4ade80 !important; text-decoration: none; font-size: 12px; font-weight: 500;" class="social-link">IG</a>
+                                        </td>
+                                        <td>
+                                            <a href="https://www.facebook.com/rccg.btc/" style="display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: rgba(74, 222, 128, 0.07); border: 1px solid rgba(74, 222, 128, 0.15); color: #4ade80 !important; text-decoration: none; font-size: 12px; font-weight: 500;" class="social-link">▶</a>
+                                        </td>
+                                    </tr>
+                                </table>
 
-            <div class="footer-legal">
-                You're receiving this email because you're part of our church family.<br>
-                <a href="#">Unsubscribe</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Contact Us</a>
-            </div>
-        </div>
+                                <div style="padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 10.5px; color: rgba(255,255,255,0.2); line-height: 1.6; letter-spacing: 0.02em;">
+                                    You're receiving this email because you're part of our church family.<br>
+                                    <a href="#" style="color: rgba(74, 222, 128, 0.5) !important; text-decoration: none;">Unsubscribe</a> &nbsp;·&nbsp;
+                                    <a href="#" style="color: rgba(74, 222, 128, 0.5) !important; text-decoration: none;">Privacy Policy</a> &nbsp;·&nbsp;
+                                    <a href="#" style="color: rgba(74, 222, 128, 0.5) !important; text-decoration: none;">Contact Us</a>
+                                </div>
+                            </td>
+                        </tr>
 
-        <div class="bottom-bar"></div>
-    </div>
+                        <!-- ACCENT BOTTOM -->
+                        <tr>
+                            <td height="3" style="background: linear-gradient(90deg, transparent, #046307, #4ade80, #046307, transparent);"></td>
+                        </tr>
+                    </table>
+                    <!-- [if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+                </td>
+            </tr>
+        </table>
+    </center>
 </body>
 </html>
