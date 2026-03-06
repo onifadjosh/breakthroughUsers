@@ -330,6 +330,31 @@
             background: linear-gradient(90deg, transparent, #046307, #4ade80, #046307, transparent);
             border-radius: 0 0 2px 2px;
         }
+
+        /* ── RESPONSIVE STYLES ── */
+        @media only screen and (max-width: 600px) {
+            body { padding: 20px 10px !important; }
+            .wrapper { width: 100% !important; margin: 0 !important; }
+
+            .header { padding: 20px !important; }
+            .logo-ring { width: 42px !important; height: 42px !important; }
+            .logo-ring img { width: 30px !important; height: 30px !important; }
+            .brand-name { font-size: 16px !important; }
+            .header-date { display: none; }
+
+            .hero-banner { padding: 40px 20px !important; }
+            .hero-title { font-size: 28px !important; }
+
+            .content { padding: 30px 20px !important; }
+            .body-text { font-size: 14.5px !important; line-height: 1.7 !important; }
+
+            .cta-wrap { flex-direction: column !important; align-items: stretch !important; gap: 12px !important; }
+            .button, .button-ghost { text-align: center !important; width: 100% !important; }
+
+            .footer { padding: 30px 20px !important; }
+            .social-link { width: 32px !important; height: 32px !important; }
+            .footer-org { font-size: 14px !important; }
+        }
     </style>
 </head>
 <body>
